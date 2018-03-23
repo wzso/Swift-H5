@@ -1,0 +1,24 @@
+<html>
+<head>
+  <meta charset="UTF-8">
+  <title>H5页面</title>
+</head>
+<body>
+  <h1 align="center">可变色标题</h1>
+  <script>
+    // JS 调用原生
+    function callNativeApp() {
+      try {
+        webkit.messageHandlers.callbackHandler.postMessage("Hello, Swift! I'm a JavaScript function.");
+      } catch (error) {
+        console.log(error)
+      }
+    }
+    // 原生调用 JS
+    function changeHeaderColor() {
+      document.querySelector('h1').style.color = '#'+(Math.random()*0xffffff<<0).toString(16);
+    }
+  </script>
+  <button align="center" style="text-align:center;height:50px;width:200px;font-size:30px;" onclick="callNativeApp()">调用原生</button>
+</body>
+</html>
